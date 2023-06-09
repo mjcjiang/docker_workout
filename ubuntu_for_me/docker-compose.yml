@@ -1,12 +1,18 @@
 version: '3'
 services:
-  ubuntu:
-    image: ubuntu_for_hjiang
+  ubuntu_for_me:
+    image: ubuntu_for_me
     command: tail -f /dev/null
     ports:
       - "8000:8000"
     networks:
       - my_network
+    volumes:
+      - my_data:/home/hjiang
 
 networks:
   my_network:
+
+volumes:
+  my_data:
+    driver: local
